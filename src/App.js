@@ -188,13 +188,12 @@ class App extends React.Component {
 	}
 
 	setImageSize(event) {
-		console.log(event.target.value);
 		this.state.refs.forEach((ref) => ref.current.setImageSize(event.target.value));
 	}
 
 	render() {
 		return (
-			<div class="container">
+			<div className="container">
 				<div>
 					<button onClick={this.toggleHidden}>
 						{this.state.hidden ? "Show excluded champions" : "Hide excluded champions"}
@@ -213,7 +212,7 @@ class App extends React.Component {
 				</div>
 				<div>
 					{this.sources.map((item, index) => (
-						<ChampionImage data={item} ref={this.state.refs[index]} />
+						<ChampionImage data={item} ref={this.state.refs[index]} key={item} />
 					))}
 				</div>
 			</div>
