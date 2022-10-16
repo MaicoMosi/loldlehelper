@@ -6,6 +6,7 @@ class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.toggleHidden = this.toggleHidden.bind(this);
+		this.setImageSize = this.setImageSize.bind(this);
 
 		this.sources = [
 			"Aatrox.png",
@@ -186,12 +187,30 @@ class App extends React.Component {
 		this.state.refs.forEach((ref) => ref.current.toggleHidden());
 	}
 
+	setImageSize(event) {
+		console.log(event.target.value);
+		this.state.refs.forEach((ref) => ref.current.setImageSize(event.target.value));
+	}
+
 	render() {
 		return (
 			<div class="container">
-				<button onClick={this.toggleHidden}>
-					{this.state.hidden ? "Show excluded champions" : "Hide excluded champions"}
-				</button>
+				<div>
+					<button onClick={this.toggleHidden}>
+						{this.state.hidden ? "Show excluded champions" : "Hide excluded champions"}
+					</button>
+					<br />
+					<input
+						id="typeinp"
+						type="range"
+						min="10"
+						max="230"
+						defaultValue={120}
+						step="10"
+						onChange={this.setImageSize}
+						style={{ minWidth: "20%" }}
+					/>
+				</div>
 				<div>
 					{this.sources.map((item, index) => (
 						<ChampionImage data={item} ref={this.state.refs[index]} />
@@ -208,9 +227,11 @@ class ChampionImage extends React.Component {
 		this.state = {
 			active: true,
 			hidden: false,
+			imageSize: 100,
 		};
 		this.toggleClass = this.toggleClass.bind(this);
 		this.toggleHidden = this.toggleHidden.bind(this);
+		this.setImageSize = this.setImageSize.bind(this);
 	}
 
 	toggleClass() {
@@ -221,6 +242,10 @@ class ChampionImage extends React.Component {
 		this.setState({ hidden: !this.state.hidden });
 	}
 
+	setImageSize(size) {
+		this.setState({ imageSize: size });
+	}
+
 	render() {
 		var classes = "";
 		classes += this.state.active ? "selectedImage" : "unselectedImage";
@@ -228,6 +253,8 @@ class ChampionImage extends React.Component {
 
 		return (
 			<img
+				width={this.state.imageSize}
+				height={this.state.imageSize}
 				key={this.champion}
 				src={require("./assets/" + this.props.data)}
 				onClick={this.toggleClass}
