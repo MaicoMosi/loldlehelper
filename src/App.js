@@ -6,169 +6,170 @@ class App extends React.Component {
 		super(props);
 		this.toggleHidden = this.toggleHidden.bind(this);
 		this.setImageSize = this.setImageSize.bind(this);
+		this.handleHiddenSexButton = this.handleHiddenSexButton.bind(this);
 
 		this.sources = [
-			"Aatrox.png",
-			"Ahri.png",
-			"Akali.png",
-			"Akshan.png",
-			"Alistar.png",
-			"Amumu.png",
-			"Anivia.png",
-			"Annie.png",
-			"Aphelios.png",
-			"Ashe.png",
-			"AurelionSol.png",
-			"Azir.png",
-			"Bard.png",
-			"Belveth.png",
-			"Blitzcrank.png",
-			"Brand.png",
-			"Braum.png",
-			"Caitlyn.png",
-			"Camille.png",
-			"Cassiopeia.png",
-			"Chogath.png",
-			"Corki.png",
-			"Darius.png",
-			"Diana.png",
-			"Draven.png",
-			"DrMundo.png",
-			"Ekko.png",
-			"Elise.png",
-			"Evelynn.png",
-			"Ezreal.png",
-			"Fiddlesticks.png",
-			"Fiora.png",
-			"Fizz.png",
-			"Galio.png",
-			"Gangplank.png",
-			"Garen.png",
-			"Gnar.png",
-			"Gragas.png",
-			"Graves.png",
-			"Gwen.png",
-			"Hecarim.png",
-			"Heimerdinger.png",
-			"Illaoi.png",
-			"Irelia.png",
-			"Ivern.png",
-			"Janna.png",
-			"JarvanIV.png",
-			"Jax.png",
-			"Jayce.png",
-			"Jhin.png",
-			"Jinx.png",
-			"Kaisa.png",
-			"Kalista.png",
-			"Karma.png",
-			"Karthus.png",
-			"Kassadin.png",
-			"Katarina.png",
-			"Kayle.png",
-			"Kayn.png",
-			"Kennen.png",
-			"Khazix.png",
-			"Kindred.png",
-			"Kled.png",
-			"KogMaw.png",
-			"Leblanc.png",
-			"LeeSin.png",
-			"Leona.png",
-			"Lillia.png",
-			"Lissandra.png",
-			"Lucian.png",
-			"Lulu.png",
-			"Lux.png",
-			"Malphite.png",
-			"Malzahar.png",
-			"Maokai.png",
-			"MasterYi.png",
-			"MissFortune.png",
-			"MonkeyKing.png",
-			"Mordekaiser.png",
-			"Morgana.png",
-			"Nami.png",
-			"Nasus.png",
-			"Nautilus.png",
-			"Neeko.png",
-			"Nidalee.png",
-			"Nilah.png",
-			"Nocturne.png",
-			"Nunu.png",
-			"Olaf.png",
-			"Orianna.png",
-			"Ornn.png",
-			"Pantheon.png",
-			"Poppy.png",
-			"Pyke.png",
-			"Qiyana.png",
-			"Quinn.png",
-			"Rakan.png",
-			"Rammus.png",
-			"RekSai.png",
-			"Rell.png",
-			"Renata.png",
-			"Renekton.png",
-			"Rengar.png",
-			"Riven.png",
-			"Rumble.png",
-			"Ryze.png",
-			"Samira.png",
-			"Sejuani.png",
-			"Senna.png",
-			"Seraphine.png",
-			"Sett.png",
-			"Shaco.png",
-			"Shen.png",
-			"Shyvana.png",
-			"Singed.png",
-			"Sion.png",
-			"Sivir.png",
-			"Skarner.png",
-			"Sona.png",
-			"Soraka.png",
-			"Swain.png",
-			"Sylas.png",
-			"Syndra.png",
-			"TahmKench.png",
-			"Taliyah.png",
-			"Talon.png",
-			"Taric.png",
-			"Teemo.png",
-			"Thresh.png",
-			"Tristana.png",
-			"Trundle.png",
-			"Tryndamere.png",
-			"TwistedFate.png",
-			"Twitch.png",
-			"Udyr.png",
-			"Urgot.png",
-			"Varus.png",
-			"Vayne.png",
-			"Veigar.png",
-			"Velkoz.png",
-			"Vex.png",
-			"Vi.png",
-			"Viego.png",
-			"Viktor.png",
-			"Vladimir.png",
-			"Volibear.png",
-			"Warwick.png",
-			"Xayah.png",
-			"Xerath.png",
-			"XinZhao.png",
-			"Yasuo.png",
-			"Yone.png",
-			"Yorick.png",
-			"Yuumi.png",
-			"Zac.png",
-			"Zed.png",
-			"Zeri.png",
-			"Ziggs.png",
-			"Zilean.png",
-			"Zoe.png",
-			"Zyra.png",
+			["Aatrox.png", "m"],
+			["Ahri.png", "f"],
+			["Akali.png", "f"],
+			["Akshan.png", "m"],
+			["Alistar.png", "m"],
+			["Amumu.png", "m"],
+			["Anivia.png", "f"],
+			["Annie.png", "f"],
+			["Aphelios.png", "m"],
+			["Ashe.png", "f"],
+			["AurelionSol.png", "m"],
+			["Azir.png", "m"],
+			["Bard.png", "m"],
+			["Belveth.png", "f"],
+			["Blitzcrank.png", "o"],
+			["Brand.png", "m"],
+			["Braum.png", "m"],
+			["Caitlyn.png", "f"],
+			["Camille.png", "f"],
+			["Cassiopeia.png", "f"],
+			["Chogath.png", "m"],
+			["Corki.png", "m"],
+			["Darius.png", "m"],
+			["Diana.png", "f"],
+			["Draven.png", "m"],
+			["DrMundo.png", "m"],
+			["Ekko.png", "m"],
+			["Elise.png", "f"],
+			["Evelynn.png", "f"],
+			["Ezreal.png", "m"],
+			["Fiddlesticks.png", "o"],
+			["Fiora.png", "f"],
+			["Fizz.png", "m"],
+			["Galio.png", "m"],
+			["Gangplank.png", "m"],
+			["Garen.png", "m"],
+			["Gnar.png", "m"],
+			["Gragas.png", "m"],
+			["Graves.png", "m"],
+			["Gwen.png", "f"],
+			["Hecarim.png", "m"],
+			["Heimerdinger.png", "m"],
+			["Illaoi.png", "f"],
+			["Irelia.png", "f"],
+			["Ivern.png", "m"],
+			["Janna.png", "f"],
+			["JarvanIV.png", "m"],
+			["Jax.png", "m"],
+			["Jayce.png", "m"],
+			["Jhin.png", "m"],
+			["Jinx.png", "f"],
+			["Kaisa.png", "f"],
+			["Kalista.png", "f"],
+			["Karma.png", "f"],
+			["Karthus.png", "m"],
+			["Kassadin.png", "m"],
+			["Katarina.png", "f"],
+			["Kayle.png", "f"],
+			["Kayn.png", "m"],
+			["Kennen.png", "m"],
+			["Khazix.png", "m"],
+			["Kindred.png", "o"],
+			["Kled.png", "m"],
+			["KogMaw.png", "m"],
+			["Leblanc.png", "f"],
+			["LeeSin.png", "m"],
+			["Leona.png", "f"],
+			["Lillia.png", "f"],
+			["Lissandra.png", "f"],
+			["Lucian.png", "m"],
+			["Lulu.png", "f"],
+			["Lux.png", "f"],
+			["Malphite.png", "m"],
+			["Malzahar.png", "m"],
+			["Maokai.png", "m"],
+			["MasterYi.png", "m"],
+			["MissFortune.png", "f"],
+			["MonkeyKing.png", "m"],
+			["Mordekaiser.png", "m"],
+			["Morgana.png", "f"],
+			["Nami.png", "f"],
+			["Nasus.png", "m"],
+			["Nautilus.png", "m"],
+			["Neeko.png", "f"],
+			["Nidalee.png", "f"],
+			["Nilah.png", "f"],
+			["Nocturne.png", "m"],
+			["Nunu.png", "m"],
+			["Olaf.png", "m"],
+			["Orianna.png", "f"],
+			["Ornn.png", "m"],
+			["Pantheon.png", "m"],
+			["Poppy.png", "f"],
+			["Pyke.png", "m"],
+			["Qiyana.png", "f"],
+			["Quinn.png", "f"],
+			["Rakan.png", "m"],
+			["Rammus.png", "m"],
+			["RekSai.png", "f"],
+			["Rell.png", "f"],
+			["Renata.png", "f"],
+			["Renekton.png", "m"],
+			["Rengar.png", "m"],
+			["Riven.png", "f"],
+			["Rumble.png", "m"],
+			["Ryze.png", "m"],
+			["Samira.png", "f"],
+			["Sejuani.png", "f"],
+			["Senna.png", "f"],
+			["Seraphine.png", "f"],
+			["Sett.png", "m"],
+			["Shaco.png", "m"],
+			["Shen.png", "m"],
+			["Shyvana.png", "f"],
+			["Singed.png", "m"],
+			["Sion.png", "m"],
+			["Sivir.png", "f"],
+			["Skarner.png", "m"],
+			["Sona.png", "f"],
+			["Soraka.png", "f"],
+			["Swain.png", "m"],
+			["Sylas.png", "m"],
+			["Syndra.png", "f"],
+			["TahmKench.png", "m"],
+			["Taliyah.png", "f"],
+			["Talon.png", "m"],
+			["Taric.png", "m"],
+			["Teemo.png", "m"],
+			["Thresh.png", "m"],
+			["Tristana.png", "f"],
+			["Trundle.png", "m"],
+			["Tryndamere.png", "m"],
+			["TwistedFate.png", "m"],
+			["Twitch.png", "m"],
+			["Udyr.png", "m"],
+			["Urgot.png", "m"],
+			["Varus.png", "m"],
+			["Vayne.png", "f"],
+			["Veigar.png", "m"],
+			["Velkoz.png", "m"],
+			["Vex.png", "f"],
+			["Vi.png", "f"],
+			["Viego.png", "m"],
+			["Viktor.png", "m"],
+			["Vladimir.png", "m"],
+			["Volibear.png", "m"],
+			["Warwick.png", "m"],
+			["Xayah.png", "f"],
+			["Xerath.png", "m"],
+			["XinZhao.png", "m"],
+			["Yasuo.png", "m"],
+			["Yone.png", "m"],
+			["Yorick.png", "m"],
+			["Yuumi.png", "f"],
+			["Zac.png", "m"],
+			["Zed.png", "m"],
+			["Zeri.png", "f"],
+			["Ziggs.png", "m"],
+			["Zilean.png", "m"],
+			["Zoe.png", "f"],
+			["Zyra.png", "f"],
 		];
 
 		this.refs = [];
@@ -178,7 +179,19 @@ class App extends React.Component {
 		this.state = {
 			hidden: false,
 			refs: this.refs,
+			hiddenSex: [],
 		};
+	}
+
+	handleHiddenSexButton(sex) {
+		var helperArray = this.state.hiddenSex;
+		if (this.state.hiddenSex.includes(sex)) {
+			helperArray = helperArray.filter((item) => item !== sex);
+		} else {
+			helperArray = helperArray.concat(sex);
+		}
+		this.state.refs.forEach((ref) => ref.current.setHiddenSex(helperArray));
+		this.setState({ hiddenSex: helperArray });
 	}
 
 	toggleHidden() {
@@ -208,10 +221,24 @@ class App extends React.Component {
 						onChange={this.setImageSize}
 						style={{ minWidth: "20%" }}
 					/>
+					<div>
+						<button onClick={() => this.handleHiddenSexButton("m")}>
+							{this.state.hiddenSex.includes("m") ? "Show Male" : "Hide Male"}
+						</button>
+						<button
+							onClick={() => this.handleHiddenSexButton("f")}
+							style={{ marginLeft: "10px", marginRight: "10px" }}
+						>
+							{this.state.hiddenSex.includes("f") ? "Show Female" : "Hide Female"}
+						</button>
+						<button onClick={() => this.handleHiddenSexButton("o")}>
+							{this.state.hiddenSex.includes("o") ? "Show Other" : "Hide Other"}
+						</button>
+					</div>
 				</div>
 				<div>
 					{this.sources.map((item, index) => (
-						<ChampionImage data={item} ref={this.state.refs[index]} key={item} />
+						<ChampionImage data={item[0]} ref={this.state.refs[index]} key={item[0]} sex={item[1]} />
 					))}
 				</div>
 			</div>
@@ -226,10 +253,17 @@ class ChampionImage extends React.Component {
 			active: true,
 			hidden: false,
 			imageSize: 100,
+			sex: this.props.sex,
+			hiddenSex: [],
 		};
 		this.toggleClass = this.toggleClass.bind(this);
 		this.toggleHidden = this.toggleHidden.bind(this);
 		this.setImageSize = this.setImageSize.bind(this);
+		this.setHiddenSex = this.setHiddenSex.bind(this);
+	}
+
+	setHiddenSex(hiddenSex) {
+		this.setState({ hiddenSex: hiddenSex });
 	}
 
 	toggleClass() {
@@ -247,13 +281,16 @@ class ChampionImage extends React.Component {
 	render() {
 		var classes = "";
 		classes += this.state.active ? "selectedImage" : "unselectedImage";
-		classes += this.state.hidden && !this.state.active ? " hiddenImage" : "";
+		classes +=
+			(this.state.hidden && !this.state.active) || this.state.hiddenSex.includes(this.state.sex)
+				? " hiddenImage"
+				: "";
 
 		return (
 			<img
 				width={this.state.imageSize}
 				height={this.state.imageSize}
-				key={this.champion}
+				key={this.props.data}
 				src={require("./assets/" + this.props.data)}
 				onClick={this.toggleClass}
 				className={classes}
