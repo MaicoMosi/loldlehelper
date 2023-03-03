@@ -72,6 +72,7 @@ class App extends React.Component {
 			["Khazix.png", "m"],
 			["Kindred.png", "o"],
 			["Kled.png", "m"],
+			["KSante.png", "m"],
 			["KogMaw.png", "m"],
 			["Leblanc.png", "f"],
 			["LeeSin.png", "m"],
